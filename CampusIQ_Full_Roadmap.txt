@@ -1,0 +1,626 @@
+
+================================================================
+  CAMPUSIQ — FULL PRODUCT ROADMAP
+  "The only app that knows your entire college life"
+  Built with MERN Stack | Made for Indian College Students
+================================================================
+
+
+----------------------------------------------------------------
+  PRODUCT IDENTITY
+----------------------------------------------------------------
+
+Name        : CampusIQ
+Tagline     : "The only app that knows your entire college life — not just your tasks."
+Target      : All Indian college students (Engineering, Medical, Arts, MBA)
+Stack       : MongoDB + Express + React + Node.js (MERN)
+State Mgmt  : Zustand
+Auth        : JWT (JSON Web Tokens)
+AI          : OpenAI API (Phase 3 onwards)
+Payments    : Razorpay (Phase 4)
+Deploy      : Vercel (frontend) + Render or Railway (backend) + MongoDB Atlas (DB)
+
+
+----------------------------------------------------------------
+  3 CORE PILLARS
+----------------------------------------------------------------
+
+1. SURVIVE COLLEGE
+   Deadlines, exams, attendance, expenses.
+   The daily panic — solved.
+
+2. FEEL YOUR CAMPUS
+   Anonymous mess food + professor + hostel ratings.
+   Hyper-local, hyper-Indian, goes viral in WhatsApp groups.
+
+3. WIN PLACEMENT
+   DSA tracker, interview journal, offer comparison.
+   Your entire career prep in one place.
+
+
+----------------------------------------------------------------
+  WHY THIS IS THE 1% PRODUCT
+----------------------------------------------------------------
+
+- Burnout Score
+  Combines sleep + pending tasks + exam proximity.
+  Gives a daily pressure index. No app does this for Indian students.
+
+- Campus Social Ratings
+  Anonymous mess / professor / hostel ratings per college.
+  Spreads virally without any marketing spend.
+
+- Placement Readiness Score
+  AI judges if you are ready for placements based on your actual data.
+  Not a quiz. Based on your real sleep, tasks, and DSA history.
+
+- Connected Intelligence
+  Sleep + study + money + career — all in one AI brain.
+  No single app does all four for Indian college students.
+
+
+================================================================
+  PHASE 1 — WEEK 1 TO 5
+  "The Foundation"
+================================================================
+
+GOAL
+  Ship something real.
+  Get 10 classmates using it every single day.
+
+WHAT TO BUILD
+  - User register and login (JWT auth)
+  - Add tasks with deadline and priority
+  - Mark tasks as done
+  - Today's task dashboard (homepage)
+  - Exam timetable entry
+  - Attendance percentage tracker per subject  <-- STAR FEATURE
+  - Basic profile (name, college, branch, semester, stream)
+
+STAR FEATURE REASON
+  Attendance tracker is opened multiple times daily by every Indian student.
+  The 75% rule is a constant anxiety. This brings daily habit.
+
+WHAT TO LEARN IN THIS PHASE
+  - React components and hooks (useState, useEffect)
+  - React Router for page navigation
+  - Express routes and controllers
+  - MongoDB + Mongoose models
+  - JWT authentication (register, login, protect routes)
+  - Axios for API calls from React
+
+SUCCESS CHECK
+  10 classmates opening the app every day before you move to Phase 2.
+  Not just installed. Actually opening it daily.
+
+
+================================================================
+  PHASE 2 — WEEK 6 TO 10
+  "The Viral Layer"
+================================================================
+
+GOAL
+  Reach 50 users.
+  Mess rating spreads in your college WhatsApp in 48 hours.
+
+WHAT TO BUILD
+  - Expense tracker (daily spend log by category)
+  - Monthly budget summary with basic chart
+  - Sleep log (bedtime, wake time, quality rating 1 to 5)
+  - CGPA and marks calculator
+  - Mess food rating — anonymous, college-specific          <-- STAR FEATURE
+  - Professor rating — anonymous                           <-- STAR FEATURE
+  - Hostel and canteen rating — anonymous                  <-- STAR FEATURE
+
+STAR FEATURE REASON
+  These three ratings are your growth engine.
+  No serious productivity app has this.
+  Post the mess rating yourself in your college group.
+  Let the opinions fly. That is your launch campaign.
+
+WHAT TO LEARN IN THIS PHASE
+  - Zustand store setup and slices per feature
+  - MongoDB aggregation pipelines (for monthly summaries)
+  - Recharts for expense charts
+  - Anonymous data patterns (store userId but do not show it publicly)
+
+SUCCESS CHECK
+  50 users on the app.
+  Mess rating page getting new submissions daily without you asking.
+
+
+================================================================
+  PHASE 3 — WEEK 11 TO 15
+  "The Brain"
+================================================================
+
+GOAL
+  AI that uses real student data.
+  100+ users.
+  Create the "wow" moment where AI feels magical.
+
+WHAT TO BUILD
+  - Auto daily study plan (based on deadlines + sleep + workload)
+  - Smart expense insights ("you spent 40% more on food this week")
+  - Weekly productivity summary card
+  - Burnout Score (sleep + tasks + exam proximity)         <-- STAR FEATURE
+  - Today's Pressure Index (daily AI number 1 to 10)      <-- STAR FEATURE
+  - AI study suggestions powered by OpenAI API
+
+STAR FEATURE REASON
+  The burnout score is your real moat.
+  After weeks of real data, when it warns a student 4 days before they crash
+  and it is right — they will never delete this app.
+  That is the product moment you are building towards.
+
+WHAT TO LEARN IN THIS PHASE
+  - OpenAI API integration (prompts, responses, streaming)
+  - node-cron for scheduled daily plan generation
+  - Bull MQ for background job queues
+  - Redis for caching (daily plan cached, not regenerated every load)
+  - Sentry for error tracking in production
+
+SUCCESS CHECK
+  100+ users.
+  At least 20 users have seen a burnout warning and said it was accurate.
+
+
+================================================================
+  PHASE 4 — WEEK 16 ONWARDS
+  "Placement Mode — Pro Tier"
+================================================================
+
+GOAL
+  Charge money.
+  Students pay Rs 149 per month without thinking twice.
+
+WHAT TO BUILD
+  - DSA problem streak tracker (LeetCode style streak)
+  - Company-wise prep roadmap (FAANG, product, service tiers)
+  - Interview experience journal (notes per round per company)
+  - Resume version tracker (upload and compare versions)
+  - Offer comparison tool (salary, location, role, growth)
+  - Placement Readiness Score (AI based on your actual data) <-- STAR FEATURE
+
+STAR FEATURE REASON
+  The readiness score tells a student honestly where they stand.
+  Not based on a quiz. Based on months of their real data — sleep, tasks, DSA.
+  This is something no coaching institute or app can replicate.
+
+WHAT TO LEARN IN THIS PHASE
+  - Razorpay payment integration
+  - Subscription logic (monthly billing, renewal, cancellation)
+  - Feature gating (Pro vs Free — same codebase, different access)
+  - Performance optimization (lazy loading, caching, pagination)
+  - Error monitoring and analytics
+
+SUCCESS CHECK
+  First 10 paying Pro users.
+  Monthly recurring revenue started.
+
+
+================================================================
+  MONGODB COLLECTIONS
+================================================================
+
+users
+  _id, name, email, passwordHash, college, branch,
+  semester, stream, placementMode, isPro, createdAt
+
+tasks
+  _id, userId, title, subject, priority, status,
+  deadline, estimatedMins, actualMins, tags
+
+exams
+  _id, userId, subject, examDate, syllabus,
+  prepHoursTarget, status
+
+attendance
+  _id, userId, subject, totalClasses, attended,
+  percentage, updatedAt
+
+expenses
+  _id, userId, amount, category, note, date, paymentMode
+
+sleep_logs
+  _id, userId, bedtime, wakeTime, durationHrs, qualityRating
+
+ratings
+  _id, userId, college, type, targetName, score, review, anonymous
+
+study_plans
+  _id, userId, planDate, slots (array), aiGenerated,
+  completionPct, burnoutScore
+
+placements
+  _id, userId, dsaStreak, companies (array),
+  interviews (array), offers (array), readinessScore
+
+
+================================================================
+  ALL API ROUTES
+================================================================
+
+AUTH
+  POST  /api/auth/register       Create new account
+  POST  /api/auth/login          Login, receive JWT token
+  GET   /api/auth/me             Get currently logged in user
+
+TASKS
+  GET   /api/tasks               All tasks (filterable by status, priority)
+  POST  /api/tasks               Create new task
+  PATCH /api/tasks/:id           Update task (status, deadline, etc)
+  DEL   /api/tasks/:id           Delete task
+
+ATTENDANCE
+  GET   /api/attendance          All subjects with percentages
+  POST  /api/attendance          Add new subject
+  PATCH /api/attendance/:id      Mark present or absent
+
+EXAMS
+  GET   /api/exams               All exams with countdowns
+  POST  /api/exams               Add new exam
+  PATCH /api/exams/:id           Update exam
+
+EXPENSES
+  POST  /api/expenses            Log new expense
+  GET   /api/expenses            All expenses (filterable by month)
+  GET   /api/expenses/summary    Monthly breakdown by category
+
+SLEEP
+  POST  /api/sleep               Log sleep entry
+  GET   /api/sleep?days=30       Last N days of sleep data
+
+RATINGS
+  POST  /api/ratings             Submit new rating (mess / prof / hostel)
+  GET   /api/ratings/:college/:type  Get all ratings for a college by type
+
+PLANNER
+  GET   /api/planner/today       Get or generate today's study plan
+  POST  /api/planner/generate    Manually trigger plan regeneration
+
+AI
+  GET   /api/ai/insights         Burnout score + pressure index + suggestions
+
+
+================================================================
+  FOLDER STRUCTURE
+================================================================
+
+campusiq/
+|
+|-- client/                        React Frontend
+|   |-- src/
+|       |-- components/            Reusable UI (Navbar, Sidebar, TaskCard, Loader)
+|       |-- pages/                 One file per screen
+|       |   |-- Login.jsx
+|       |   |-- Register.jsx
+|       |   |-- Dashboard.jsx
+|       |   |-- Tasks.jsx
+|       |   |-- Timetable.jsx
+|       |   |-- Attendance.jsx
+|       |   |-- Expenses.jsx
+|       |   |-- Ratings.jsx
+|       |   |-- Planner.jsx
+|       |   |-- Insights.jsx
+|       |   |-- Placement.jsx
+|       |-- features/              Logic per domain
+|       |   |-- auth/
+|       |   |   |-- authStore.js
+|       |   |   |-- authApi.js
+|       |   |-- tasks/
+|       |   |   |-- taskStore.js
+|       |   |   |-- taskApi.js
+|       |   |-- expenses/
+|       |   |-- ratings/
+|       |   |-- planner/
+|       |-- hooks/
+|       |   |-- useAuth.js
+|       |-- utils/
+|       |   |-- axios.js           Base API config with token header
+|       |-- App.jsx
+|       |-- main.jsx
+|
+|-- server/                        Node + Express Backend
+|   |-- src/
+|       |-- config/
+|       |   |-- db.js              MongoDB connection
+|       |   |-- env.js             Environment variables
+|       |-- modules/               One folder per feature
+|       |   |-- auth/
+|       |   |   |-- auth.model.js
+|       |   |   |-- auth.controller.js
+|       |   |   |-- auth.routes.js
+|       |   |   |-- auth.service.js
+|       |   |-- tasks/
+|       |   |-- attendance/
+|       |   |-- expenses/
+|       |   |-- ratings/
+|       |   |-- planner/
+|       |   |-- sleep/
+|       |   |-- ai/
+|       |-- middlewares/
+|       |   |-- auth.js            JWT verify middleware
+|       |   |-- error.js           Global error handler
+|       |-- jobs/
+|       |   |-- plannerJob.js      Daily plan cron job
+|       |-- app.js
+|       |-- server.js
+
+
+================================================================
+  NPM PACKAGES
+================================================================
+
+FRONTEND — install inside /client
+  react-router-dom    Page routing
+  zustand             State management
+  axios               API calls
+  recharts            Charts and graphs
+  react-hot-toast     Toast notifications
+  date-fns            Date formatting
+  lucide-react        Icons
+
+BACKEND — install inside /server
+  express             Web framework
+  mongoose            MongoDB ODM
+  bcryptjs            Password hashing
+  jsonwebtoken        JWT auth
+  dotenv              Environment variables
+  cors                CORS headers
+  express-validator   Input validation
+  openai              OpenAI API (Phase 3)
+  bull                Job queues (Phase 3)
+  node-cron           Scheduled jobs (Phase 3)
+  razorpay            Payments (Phase 4)
+
+
+================================================================
+  UI SCREENS — WHAT TO BUILD WHEN
+================================================================
+
+PHASE 1 SCREENS
+  Login page
+  Register page
+  Dashboard — today tasks, exam countdown, attendance alert
+  Task list with add, edit, delete
+  Exam timetable
+  Attendance tracker per subject
+  Profile setup
+
+PHASE 2 SCREENS
+  Expense log with category tags
+  Monthly expense chart
+  Sleep log entry
+  CGPA calculator
+  Mess ratings feed (filtered by college)
+  Professor ratings feed
+  Submit a rating form
+
+PHASE 3 SCREENS
+  Today's study plan (AI generated)
+  Burnout score card with history graph
+  Pressure index widget on dashboard
+  Weekly productivity report
+  AI suggestions feed
+
+PHASE 4 SCREENS — Pro only
+  DSA streak tracker
+  Company watchlist
+  Interview journal
+  Resume version list
+  Offer comparison table
+  Placement readiness score card
+
+
+================================================================
+  90-DAY MILESTONE TIMELINE
+================================================================
+
+Day 1 to 5
+  GitHub repo created
+  /client and /server folders set up
+  MongoDB Atlas cluster created and connected
+  Express server running with a test route
+  React app created with Vite
+
+Day 6 to 14
+  User model written
+  Register and Login API working
+  JWT middleware protecting routes
+  Login and Register pages in React
+  JWT stored, user redirected to dashboard
+  App deployed — backend on Render, frontend on Vercel
+
+Day 15 to 25
+  Task model and CRUD API complete
+  Task page in React — add, view, complete, delete
+  Zustand store for tasks set up
+  Attendance model and API complete
+  Attendance page in React
+
+Day 26 to 35
+  Exam timetable API and page
+  Dashboard showing today tasks + exam countdown + attendance warning
+  Profile setup page
+  Phase 1 complete — share with 10 classmates
+
+Day 36 to 50
+  Expense model + API + page with chart
+  Sleep log API and page
+  CGPA calculator page
+  Rating model and API (anonymous)
+
+Day 51 to 70
+  Mess ratings feed page
+  Professor ratings feed page
+  Submit rating form
+  Phase 2 complete — 50 users target
+
+Day 71 to 85
+  OpenAI API connected
+  Burnout score calculation logic
+  Daily study planner generation (cron job)
+  Pressure index on dashboard
+
+Day 86 to 90
+  AI insights page
+  Weekly report
+  Phase 3 complete — 100 users target
+  Start talking about Pro tier launch
+
+
+================================================================
+  SUCCESS METRICS — TRACK EVERY WEEK
+================================================================
+
+  10 daily active users before building Phase 2
+  50 total users before building Phase 3 AI
+  Users opening app 3 or more days per week
+  100 total users before charging money
+  10 paying Pro users as Phase 4 success
+
+
+================================================================
+  5 IRON RULES — NEVER BREAK THESE
+================================================================
+
+1.  Never build Phase N+1 until Phase N has real daily users.
+    Not friends saying nice. Actually opening it every day.
+
+2.  Deploy on Day 1.
+    Even a blank login page with a live URL.
+    A deployed app forces you to think like a real product.
+
+3.  Talk to 3 real students every week.
+    Not to show them the product.
+    Watch them use it and see where they get confused.
+
+4.  The mess rating is your marketing.
+    Post it yourself in your college WhatsApp group.
+    Let the opinions fly. That is your product launch.
+
+5.  You are your own first user.
+    Use CampusIQ for your own college life every single day.
+    If you do not use it, nobody else will.
+
+
+================================================================
+  SKIP LIST — DO NOT BUILD UNTIL 100 REAL USERS
+================================================================
+
+  Google OAuth
+  WebSockets and real-time features
+  Push notifications
+  Mobile app
+  Dark mode
+  Admin dashboard
+  Email verification
+  Payment gateway (Razorpay comes in Phase 4 only)
+
+Reason: Every extra feature multiplies complexity and delays shipping.
+These are Phase 5 problems, not Phase 1 problems.
+
+
+================================================================
+  WHAT TO LEARN — ORDERED BY PRIORITY
+================================================================
+
+START HERE — before any code
+  JavaScript fundamentals (async/await, array methods, destructuring)
+  How HTTP works (GET, POST, request, response, status codes)
+  What REST API means
+  What JSON is
+
+PHASE 1 LEARNING
+  React — components, props, useState, useEffect
+  React Router — page navigation, protected routes
+  Express — routes, controllers, middleware
+  Mongoose — models, schemas, CRUD operations
+  JWT — how tokens work, storing them, sending in headers
+  Axios — making API calls, handling errors
+
+PHASE 2 LEARNING
+  Zustand — stores, slices, global state
+  MongoDB aggregation — grouping, summing, filtering by date
+  Recharts — bar chart, line chart, pie chart
+  React controlled forms — inputs, validation
+
+PHASE 3 LEARNING
+  OpenAI API — prompts, responses, token limits, cost management
+  node-cron — running jobs at scheduled times
+  Bull MQ — queuing background jobs
+  Redis — caching frequently read data
+  Sentry — error tracking in production
+
+PHASE 4 LEARNING
+  Razorpay — creating orders, verifying payments, webhooks
+  Feature gating — showing Pro features only to paid users
+  Performance — lazy loading, pagination, query optimization
+  Deployment optimization — environment configs, build pipelines
+
+
+================================================================
+  DAY 1 CHECKLIST — DO THIS TODAY IN ORDER
+================================================================
+
+  [ ] Create GitHub repo named campusiq
+  [ ] Create two folders inside — /client and /server
+  [ ] Inside /server — run: npm init -y
+  [ ] Install backend packages:
+      npm install express mongoose bcryptjs jsonwebtoken dotenv cors express-validator
+  [ ] Create .env file with PORT, MONGO_URI, JWT_SECRET
+  [ ] Create config/db.js and connect to MongoDB Atlas
+  [ ] Run server — see "MongoDB connected" in terminal
+  [ ] Inside /client — run: npm create vite@latest . -- --template react
+  [ ] Install frontend packages:
+      npm install react-router-dom zustand axios recharts lucide-react react-hot-toast date-fns
+  [ ] Write User model in server/modules/auth/auth.model.js
+  [ ] Write register and login routes
+  [ ] Test with Postman — get a JWT token back
+  [ ] Build Login page in React
+  [ ] Connect Login form to API using Axios
+  [ ] Store JWT in localStorage on success
+  [ ] Redirect to Dashboard after login
+  [ ] Deploy backend to Render
+  [ ] Deploy frontend to Vercel
+  [ ] Share the live URL with one friend today
+
+
+================================================================
+  DEPLOYMENT GUIDE
+================================================================
+
+FRONTEND — Vercel
+  1. Push /client to GitHub
+  2. Go to vercel.com, import your repo
+  3. Set build command: npm run build
+  4. Set output directory: dist
+  5. Add environment variable: VITE_API_URL = your Render backend URL
+  6. Deploy. Auto-deploys on every git push.
+
+BACKEND — Render
+  1. Push /server to GitHub
+  2. Go to render.com, create new Web Service
+  3. Connect your GitHub repo
+  4. Set start command: node src/server.js
+  5. Add environment variables: PORT, MONGO_URI, JWT_SECRET, OPENAI_API_KEY
+  6. Deploy. Free tier available.
+
+DATABASE — MongoDB Atlas
+  1. Go to mongodb.com/atlas
+  2. Create free M0 cluster
+  3. Create database user with password
+  4. Whitelist IP: 0.0.0.0/0 (allow all for now)
+  5. Copy connection string into .env as MONGO_URI
+
+
+================================================================
+  END OF ROADMAP
+
+  Product  : CampusIQ
+  Stack    : MERN
+  Vision   : The only app that knows your entire college life
+  Built by a student, for students.
+  India's first complete college life OS.
+================================================================
